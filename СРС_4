@@ -11,22 +11,25 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-            int[] a = new int[10], b = new int[10];
-            Random rnd = new Random();
-            for (int i = 0; i < a.Length; i++)
+            bool prost = true;
+            Console.WriteLine("Введите число\n");
+            int n = int.Parse(Console.ReadLine());
+            for (int i = 2; i <= n / 2; i++)
             {
-                a[i] = rnd.Next(20);
-                b[i] = a[i];
-                Console.Write(a[i] + " ");
+                if (n % i == 0)
+                {
+                    prost = false;
+                    break;
+                }
             }
-            Console.WriteLine();
-           
-           
-            Console.WriteLine("Наоборот");
-            for (int i = b.Length - 1; i >= 0; i--)
-                Console.Write(b[i] + " ");
-            Console.ReadLine();
+            if (prost)
+            {
+                Console.WriteLine("Число простое");
+            }
+            else
+            {
+                Console.WriteLine("Число не простое");
+            }
+            Console.ReadKey();
 
         }
-    }
-}
